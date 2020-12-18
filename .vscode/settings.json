@@ -1,3 +1,9 @@
 {
-  "git.ignoreLimitWarning": true
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "workbench.editor.labelFormat": "short",
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+"[typescriptreact]": { "editor.defaultFormatter": "vscode.typescript-language-features" }
 }
