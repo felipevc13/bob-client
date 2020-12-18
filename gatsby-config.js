@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Typescript Boilerplate`,
-    description: `Starter rápido para desenvolvimento com gatsby e typescript com prettier e eslint configurados`,
+    title: `Controle Alimentar`,
+    nome: `BOB`,
     author: `@felipevc`,
   },
   plugins: [
