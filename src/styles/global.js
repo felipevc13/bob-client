@@ -61,5 +61,9 @@ const GlobalStyles = createGlobalStyle`
   	width: 100%;
   	height: auto;
   }
+
+  html {
+    font-size: 62.5%;
+  }
 `;
 export default GlobalStyles;

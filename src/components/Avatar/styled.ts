@@ -7,7 +7,7 @@ export type ImgProps = {
 
 export const AvatarWrapper = styled(Img)<ImgProps>`
   border-radius: 50%;
-  height: 4.75rem;
+  height: 8rem;
   margin: auto;
-  width: 4.75rem;
+  width: 8rem;
 `;

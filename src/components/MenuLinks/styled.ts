@@ -6,7 +6,7 @@ export const MenuLinksWrapper = styled.nav`
 `;
 
 export const MenuLinksList = styled.ul`
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: 300;
 `;
 

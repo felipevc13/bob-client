@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ProfileWrapper = styled.section`
-  margin-top: 2rem;
+  margin-top: 4rem;
   border-bottom: 1px solid gray;
   padding-bottom: 2rem;
   color: #8899a6;
@@ -10,13 +10,13 @@ export const ProfileWrapper = styled.section`
 `;
 
 export const ProfileTitle = styled.small`
-  font-size: 1rem;
+  font-size: 1.6rem;
   display: block;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 `;
 
 export const ProfileNome = styled.h2`
-  font-size: 1.6rem;
+  font-size: 2.1rem;
   color: #21afe5;
   font-weight: 900;
 `;
