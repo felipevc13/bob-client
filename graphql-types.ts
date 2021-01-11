@@ -1418,8 +1418,8 @@ export type Query = {
   allSitePage: SitePageConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  strapiAlimentacaoDiaria?: Maybe<StrapiAlimentacaoDiaria>;
-  allStrapiAlimentacaoDiaria: StrapiAlimentacaoDiariaConnection;
+  strapiAlimentacao?: Maybe<StrapiAlimentacao>;
+  allStrapiAlimentacao: StrapiAlimentacaoConnection;
   strapiAlimento?: Maybe<StrapiAlimento>;
   allStrapiAlimento: StrapiAlimentoConnection;
   strapiCategoria?: Maybe<StrapiCategoria>;
@@ -1602,7 +1602,7 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryStrapiAlimentacaoDiariaArgs = {
+export type QueryStrapiAlimentacaoArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -1611,14 +1611,14 @@ export type QueryStrapiAlimentacaoDiariaArgs = {
   published_at?: Maybe<DateQueryOperatorInput>;
   created_at?: Maybe<DateQueryOperatorInput>;
   updated_at?: Maybe<DateQueryOperatorInput>;
-  quantidadeAlimento?: Maybe<StrapiAlimentacaoDiariaQuantidadeAlimentoFilterListInput>;
+  quantidadeAlimento?: Maybe<StrapiAlimentacaoQuantidadeAlimentoFilterListInput>;
   strapiId?: Maybe<IntQueryOperatorInput>;
 };
 
 
-export type QueryAllStrapiAlimentacaoDiariaArgs = {
-  filter?: Maybe<StrapiAlimentacaoDiariaFilterInput>;
-  sort?: Maybe<StrapiAlimentacaoDiariaSortInput>;
+export type QueryAllStrapiAlimentacaoArgs = {
+  filter?: Maybe<StrapiAlimentacaoFilterInput>;
+  sort?: Maybe<StrapiAlimentacaoSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -1656,6 +1656,7 @@ export type QueryStrapiCategoriaArgs = {
   created_at?: Maybe<DateQueryOperatorInput>;
   updated_at?: Maybe<DateQueryOperatorInput>;
   limite?: Maybe<IntQueryOperatorInput>;
+  Icone?: Maybe<FileFilterInput>;
   alimentos?: Maybe<StrapiCategoriaAlimentosFilterListInput>;
   strapiId?: Maybe<IntQueryOperatorInput>;
 };
@@ -2071,10 +2072,12 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   eq?: Maybe<Scalars['Date']>;
+  todasDatas?: Maybe<Array<Maybe<Scalars['Date']>>>;
 };
 
 export type SitePageContextFilterInput = {
   eq?: Maybe<DateQueryOperatorInput>;
+  todasDatas?: Maybe<DateQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -2177,6 +2180,7 @@ export type SitePageFieldsEnum =
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___eq'
+  | 'context___todasDatas'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -2657,7 +2661,7 @@ export type SortOrderEnum =
   | 'ASC'
   | 'DESC';
 
-export type StrapiAlimentacaoDiaria = Node & {
+export type StrapiAlimentacao = Node & {
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -2666,12 +2670,12 @@ export type StrapiAlimentacaoDiaria = Node & {
   published_at?: Maybe<Scalars['Date']>;
   created_at?: Maybe<Scalars['Date']>;
   updated_at?: Maybe<Scalars['Date']>;
-  quantidadeAlimento?: Maybe<Array<Maybe<StrapiAlimentacaoDiariaQuantidadeAlimento>>>;
+  quantidadeAlimento?: Maybe<Array<Maybe<StrapiAlimentacaoQuantidadeAlimento>>>;
   strapiId?: Maybe<Scalars['Int']>;
 };
 
 
-export type StrapiAlimentacaoDiariaDataArgs = {
+export type StrapiAlimentacaoDataArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -2679,7 +2683,7 @@ export type StrapiAlimentacaoDiariaDataArgs = {
 };
 
 
-export type StrapiAlimentacaoDiariaPublished_AtArgs = {
+export type StrapiAlimentacaoPublished_AtArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -2687,7 +2691,7 @@ export type StrapiAlimentacaoDiariaPublished_AtArgs = {
 };
 
 
-export type StrapiAlimentacaoDiariaCreated_AtArgs = {
+export type StrapiAlimentacaoCreated_AtArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -2695,41 +2699,41 @@ export type StrapiAlimentacaoDiariaCreated_AtArgs = {
 };
 
 
-export type StrapiAlimentacaoDiariaUpdated_AtArgs = {
+export type StrapiAlimentacaoUpdated_AtArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
 
-export type StrapiAlimentacaoDiariaConnection = {
+export type StrapiAlimentacaoConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<StrapiAlimentacaoDiariaEdge>;
-  nodes: Array<StrapiAlimentacaoDiaria>;
+  edges: Array<StrapiAlimentacaoEdge>;
+  nodes: Array<StrapiAlimentacao>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
-  group: Array<StrapiAlimentacaoDiariaGroupConnection>;
+  group: Array<StrapiAlimentacaoGroupConnection>;
 };
 
 
-export type StrapiAlimentacaoDiariaConnectionDistinctArgs = {
-  field: StrapiAlimentacaoDiariaFieldsEnum;
+export type StrapiAlimentacaoConnectionDistinctArgs = {
+  field: StrapiAlimentacaoFieldsEnum;
 };
 
 
-export type StrapiAlimentacaoDiariaConnectionGroupArgs = {
+export type StrapiAlimentacaoConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
-  field: StrapiAlimentacaoDiariaFieldsEnum;
+  field: StrapiAlimentacaoFieldsEnum;
 };
 
-export type StrapiAlimentacaoDiariaEdge = {
-  next?: Maybe<StrapiAlimentacaoDiaria>;
-  node: StrapiAlimentacaoDiaria;
-  previous?: Maybe<StrapiAlimentacaoDiaria>;
+export type StrapiAlimentacaoEdge = {
+  next?: Maybe<StrapiAlimentacao>;
+  node: StrapiAlimentacao;
+  previous?: Maybe<StrapiAlimentacao>;
 };
 
-export type StrapiAlimentacaoDiariaFieldsEnum = 
+export type StrapiAlimentacaoFieldsEnum = 
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2824,14 +2828,20 @@ export type StrapiAlimentacaoDiariaFieldsEnum =
   | 'quantidadeAlimento___id'
   | 'quantidadeAlimento___alimento___id'
   | 'quantidadeAlimento___alimento___nome'
-  | 'quantidadeAlimento___alimento___categoria'
+  | 'quantidadeAlimento___alimento___categoria___id'
+  | 'quantidadeAlimento___alimento___categoria___nome'
+  | 'quantidadeAlimento___alimento___categoria___published_at'
+  | 'quantidadeAlimento___alimento___categoria___created_at'
+  | 'quantidadeAlimento___alimento___categoria___updated_at'
+  | 'quantidadeAlimento___alimento___categoria___limite'
   | 'quantidadeAlimento___alimento___published_at'
   | 'quantidadeAlimento___alimento___created_at'
   | 'quantidadeAlimento___alimento___updated_at'
   | 'quantidadeAlimento___quantidade'
+  | 'quantidadeAlimento___categoria'
   | 'strapiId';
 
-export type StrapiAlimentacaoDiariaFilterInput = {
+export type StrapiAlimentacaoFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -2840,36 +2850,37 @@ export type StrapiAlimentacaoDiariaFilterInput = {
   published_at?: Maybe<DateQueryOperatorInput>;
   created_at?: Maybe<DateQueryOperatorInput>;
   updated_at?: Maybe<DateQueryOperatorInput>;
-  quantidadeAlimento?: Maybe<StrapiAlimentacaoDiariaQuantidadeAlimentoFilterListInput>;
+  quantidadeAlimento?: Maybe<StrapiAlimentacaoQuantidadeAlimentoFilterListInput>;
   strapiId?: Maybe<IntQueryOperatorInput>;
 };
 
-export type StrapiAlimentacaoDiariaGroupConnection = {
+export type StrapiAlimentacaoGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<StrapiAlimentacaoDiariaEdge>;
-  nodes: Array<StrapiAlimentacaoDiaria>;
+  edges: Array<StrapiAlimentacaoEdge>;
+  nodes: Array<StrapiAlimentacao>;
   pageInfo: PageInfo;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-export type StrapiAlimentacaoDiariaQuantidadeAlimento = {
+export type StrapiAlimentacaoQuantidadeAlimento = {
   id?: Maybe<Scalars['Int']>;
-  alimento?: Maybe<StrapiAlimentacaoDiariaQuantidadeAlimentoAlimento>;
+  alimento?: Maybe<StrapiAlimentacaoQuantidadeAlimentoAlimento>;
   quantidade?: Maybe<Scalars['Int']>;
+  categoria?: Maybe<Scalars['Int']>;
 };
 
-export type StrapiAlimentacaoDiariaQuantidadeAlimentoAlimento = {
+export type StrapiAlimentacaoQuantidadeAlimentoAlimento = {
   id?: Maybe<Scalars['Int']>;
   nome?: Maybe<Scalars['String']>;
-  categoria?: Maybe<Scalars['Int']>;
+  categoria?: Maybe<StrapiAlimentacaoQuantidadeAlimentoAlimentoCategoria>;
   published_at?: Maybe<Scalars['Date']>;
   created_at?: Maybe<Scalars['Date']>;
   updated_at?: Maybe<Scalars['Date']>;
 };
 
 
-export type StrapiAlimentacaoDiariaQuantidadeAlimentoAlimentoPublished_AtArgs = {
+export type StrapiAlimentacaoQuantidadeAlimentoAlimentoPublished_AtArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -2877,7 +2888,7 @@ export type StrapiAlimentacaoDiariaQuantidadeAlimentoAlimentoPublished_AtArgs = 
 };
 
 
-export type StrapiAlimentacaoDiariaQuantidadeAlimentoAlimentoCreated_AtArgs = {
+export type StrapiAlimentacaoQuantidadeAlimentoAlimentoCreated_AtArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -2885,34 +2896,77 @@ export type StrapiAlimentacaoDiariaQuantidadeAlimentoAlimentoCreated_AtArgs = {
 };
 
 
-export type StrapiAlimentacaoDiariaQuantidadeAlimentoAlimentoUpdated_AtArgs = {
+export type StrapiAlimentacaoQuantidadeAlimentoAlimentoUpdated_AtArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
   locale?: Maybe<Scalars['String']>;
 };
 
-export type StrapiAlimentacaoDiariaQuantidadeAlimentoAlimentoFilterInput = {
+export type StrapiAlimentacaoQuantidadeAlimentoAlimentoCategoria = {
+  id?: Maybe<Scalars['Int']>;
+  nome?: Maybe<Scalars['String']>;
+  published_at?: Maybe<Scalars['Date']>;
+  created_at?: Maybe<Scalars['Date']>;
+  updated_at?: Maybe<Scalars['Date']>;
+  limite?: Maybe<Scalars['Int']>;
+};
+
+
+export type StrapiAlimentacaoQuantidadeAlimentoAlimentoCategoriaPublished_AtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type StrapiAlimentacaoQuantidadeAlimentoAlimentoCategoriaCreated_AtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type StrapiAlimentacaoQuantidadeAlimentoAlimentoCategoriaUpdated_AtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type StrapiAlimentacaoQuantidadeAlimentoAlimentoCategoriaFilterInput = {
   id?: Maybe<IntQueryOperatorInput>;
   nome?: Maybe<StringQueryOperatorInput>;
-  categoria?: Maybe<IntQueryOperatorInput>;
+  published_at?: Maybe<DateQueryOperatorInput>;
+  created_at?: Maybe<DateQueryOperatorInput>;
+  updated_at?: Maybe<DateQueryOperatorInput>;
+  limite?: Maybe<IntQueryOperatorInput>;
+};
+
+export type StrapiAlimentacaoQuantidadeAlimentoAlimentoFilterInput = {
+  id?: Maybe<IntQueryOperatorInput>;
+  nome?: Maybe<StringQueryOperatorInput>;
+  categoria?: Maybe<StrapiAlimentacaoQuantidadeAlimentoAlimentoCategoriaFilterInput>;
   published_at?: Maybe<DateQueryOperatorInput>;
   created_at?: Maybe<DateQueryOperatorInput>;
   updated_at?: Maybe<DateQueryOperatorInput>;
 };
 
-export type StrapiAlimentacaoDiariaQuantidadeAlimentoFilterInput = {
+export type StrapiAlimentacaoQuantidadeAlimentoFilterInput = {
   id?: Maybe<IntQueryOperatorInput>;
-  alimento?: Maybe<StrapiAlimentacaoDiariaQuantidadeAlimentoAlimentoFilterInput>;
+  alimento?: Maybe<StrapiAlimentacaoQuantidadeAlimentoAlimentoFilterInput>;
   quantidade?: Maybe<IntQueryOperatorInput>;
+  categoria?: Maybe<IntQueryOperatorInput>;
 };
 
-export type StrapiAlimentacaoDiariaQuantidadeAlimentoFilterListInput = {
-  elemMatch?: Maybe<StrapiAlimentacaoDiariaQuantidadeAlimentoFilterInput>;
+export type StrapiAlimentacaoQuantidadeAlimentoFilterListInput = {
+  elemMatch?: Maybe<StrapiAlimentacaoQuantidadeAlimentoFilterInput>;
 };
 
-export type StrapiAlimentacaoDiariaSortInput = {
-  fields?: Maybe<Array<Maybe<StrapiAlimentacaoDiariaFieldsEnum>>>;
+export type StrapiAlimentacaoSortInput = {
+  fields?: Maybe<Array<Maybe<StrapiAlimentacaoFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
@@ -3158,6 +3212,7 @@ export type StrapiCategoria = Node & {
   created_at?: Maybe<Scalars['Date']>;
   updated_at?: Maybe<Scalars['Date']>;
   limite?: Maybe<Scalars['Int']>;
+  Icone?: Maybe<File>;
   alimentos?: Maybe<Array<Maybe<StrapiCategoriaAlimentos>>>;
   strapiId?: Maybe<Scalars['Int']>;
 };
@@ -3351,6 +3406,146 @@ export type StrapiCategoriaFieldsEnum =
   | 'created_at'
   | 'updated_at'
   | 'limite'
+  | 'Icone___sourceInstanceName'
+  | 'Icone___absolutePath'
+  | 'Icone___relativePath'
+  | 'Icone___extension'
+  | 'Icone___size'
+  | 'Icone___prettySize'
+  | 'Icone___modifiedTime'
+  | 'Icone___accessTime'
+  | 'Icone___changeTime'
+  | 'Icone___birthTime'
+  | 'Icone___root'
+  | 'Icone___dir'
+  | 'Icone___base'
+  | 'Icone___ext'
+  | 'Icone___name'
+  | 'Icone___relativeDirectory'
+  | 'Icone___dev'
+  | 'Icone___mode'
+  | 'Icone___nlink'
+  | 'Icone___uid'
+  | 'Icone___gid'
+  | 'Icone___rdev'
+  | 'Icone___ino'
+  | 'Icone___atimeMs'
+  | 'Icone___mtimeMs'
+  | 'Icone___ctimeMs'
+  | 'Icone___atime'
+  | 'Icone___mtime'
+  | 'Icone___ctime'
+  | 'Icone___birthtime'
+  | 'Icone___birthtimeMs'
+  | 'Icone___blksize'
+  | 'Icone___blocks'
+  | 'Icone___publicURL'
+  | 'Icone___childImageSharp___fixed___base64'
+  | 'Icone___childImageSharp___fixed___tracedSVG'
+  | 'Icone___childImageSharp___fixed___aspectRatio'
+  | 'Icone___childImageSharp___fixed___width'
+  | 'Icone___childImageSharp___fixed___height'
+  | 'Icone___childImageSharp___fixed___src'
+  | 'Icone___childImageSharp___fixed___srcSet'
+  | 'Icone___childImageSharp___fixed___srcWebp'
+  | 'Icone___childImageSharp___fixed___srcSetWebp'
+  | 'Icone___childImageSharp___fixed___originalName'
+  | 'Icone___childImageSharp___resolutions___base64'
+  | 'Icone___childImageSharp___resolutions___tracedSVG'
+  | 'Icone___childImageSharp___resolutions___aspectRatio'
+  | 'Icone___childImageSharp___resolutions___width'
+  | 'Icone___childImageSharp___resolutions___height'
+  | 'Icone___childImageSharp___resolutions___src'
+  | 'Icone___childImageSharp___resolutions___srcSet'
+  | 'Icone___childImageSharp___resolutions___srcWebp'
+  | 'Icone___childImageSharp___resolutions___srcSetWebp'
+  | 'Icone___childImageSharp___resolutions___originalName'
+  | 'Icone___childImageSharp___fluid___base64'
+  | 'Icone___childImageSharp___fluid___tracedSVG'
+  | 'Icone___childImageSharp___fluid___aspectRatio'
+  | 'Icone___childImageSharp___fluid___src'
+  | 'Icone___childImageSharp___fluid___srcSet'
+  | 'Icone___childImageSharp___fluid___srcWebp'
+  | 'Icone___childImageSharp___fluid___srcSetWebp'
+  | 'Icone___childImageSharp___fluid___sizes'
+  | 'Icone___childImageSharp___fluid___originalImg'
+  | 'Icone___childImageSharp___fluid___originalName'
+  | 'Icone___childImageSharp___fluid___presentationWidth'
+  | 'Icone___childImageSharp___fluid___presentationHeight'
+  | 'Icone___childImageSharp___sizes___base64'
+  | 'Icone___childImageSharp___sizes___tracedSVG'
+  | 'Icone___childImageSharp___sizes___aspectRatio'
+  | 'Icone___childImageSharp___sizes___src'
+  | 'Icone___childImageSharp___sizes___srcSet'
+  | 'Icone___childImageSharp___sizes___srcWebp'
+  | 'Icone___childImageSharp___sizes___srcSetWebp'
+  | 'Icone___childImageSharp___sizes___sizes'
+  | 'Icone___childImageSharp___sizes___originalImg'
+  | 'Icone___childImageSharp___sizes___originalName'
+  | 'Icone___childImageSharp___sizes___presentationWidth'
+  | 'Icone___childImageSharp___sizes___presentationHeight'
+  | 'Icone___childImageSharp___gatsbyImageData'
+  | 'Icone___childImageSharp___original___width'
+  | 'Icone___childImageSharp___original___height'
+  | 'Icone___childImageSharp___original___src'
+  | 'Icone___childImageSharp___resize___src'
+  | 'Icone___childImageSharp___resize___tracedSVG'
+  | 'Icone___childImageSharp___resize___width'
+  | 'Icone___childImageSharp___resize___height'
+  | 'Icone___childImageSharp___resize___aspectRatio'
+  | 'Icone___childImageSharp___resize___originalName'
+  | 'Icone___childImageSharp___id'
+  | 'Icone___childImageSharp___parent___id'
+  | 'Icone___childImageSharp___parent___children'
+  | 'Icone___childImageSharp___children'
+  | 'Icone___childImageSharp___children___id'
+  | 'Icone___childImageSharp___children___children'
+  | 'Icone___childImageSharp___internal___content'
+  | 'Icone___childImageSharp___internal___contentDigest'
+  | 'Icone___childImageSharp___internal___description'
+  | 'Icone___childImageSharp___internal___fieldOwners'
+  | 'Icone___childImageSharp___internal___ignoreType'
+  | 'Icone___childImageSharp___internal___mediaType'
+  | 'Icone___childImageSharp___internal___owner'
+  | 'Icone___childImageSharp___internal___type'
+  | 'Icone___id'
+  | 'Icone___parent___id'
+  | 'Icone___parent___parent___id'
+  | 'Icone___parent___parent___children'
+  | 'Icone___parent___children'
+  | 'Icone___parent___children___id'
+  | 'Icone___parent___children___children'
+  | 'Icone___parent___internal___content'
+  | 'Icone___parent___internal___contentDigest'
+  | 'Icone___parent___internal___description'
+  | 'Icone___parent___internal___fieldOwners'
+  | 'Icone___parent___internal___ignoreType'
+  | 'Icone___parent___internal___mediaType'
+  | 'Icone___parent___internal___owner'
+  | 'Icone___parent___internal___type'
+  | 'Icone___children'
+  | 'Icone___children___id'
+  | 'Icone___children___parent___id'
+  | 'Icone___children___parent___children'
+  | 'Icone___children___children'
+  | 'Icone___children___children___id'
+  | 'Icone___children___children___children'
+  | 'Icone___children___internal___content'
+  | 'Icone___children___internal___contentDigest'
+  | 'Icone___children___internal___description'
+  | 'Icone___children___internal___fieldOwners'
+  | 'Icone___children___internal___ignoreType'
+  | 'Icone___children___internal___mediaType'
+  | 'Icone___children___internal___owner'
+  | 'Icone___children___internal___type'
+  | 'Icone___internal___content'
+  | 'Icone___internal___contentDigest'
+  | 'Icone___internal___description'
+  | 'Icone___internal___fieldOwners'
+  | 'Icone___internal___ignoreType'
+  | 'Icone___internal___mediaType'
+  | 'Icone___internal___owner'
+  | 'Icone___internal___type'
   | 'alimentos'
   | 'alimentos___id'
   | 'alimentos___nome'
@@ -3370,6 +3565,7 @@ export type StrapiCategoriaFilterInput = {
   created_at?: Maybe<DateQueryOperatorInput>;
   updated_at?: Maybe<DateQueryOperatorInput>;
   limite?: Maybe<IntQueryOperatorInput>;
+  Icone?: Maybe<FileFilterInput>;
   alimentos?: Maybe<StrapiCategoriaAlimentosFilterListInput>;
   strapiId?: Maybe<IntQueryOperatorInput>;
 };
@@ -3419,22 +3615,6 @@ export type MySiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type MySiteMetadataQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'nome'>> }> };
-
-export type AlimentacaoDiariaQueryVariables = Exact<{
-  eq: Scalars['Date'];
-}>;
-
-
-export type AlimentacaoDiariaQuery = { allStrapiAlimentacaoDiaria: { edges: Array<{ node: (
-        Pick<StrapiAlimentacaoDiaria, 'id' | 'data'>
-        & { quantidadeAlimento?: Maybe<Array<Maybe<(
-          Pick<StrapiAlimentacaoDiariaQuantidadeAlimento, 'quantidade'>
-          & { alimento?: Maybe<Pick<StrapiAlimentacaoDiariaQuantidadeAlimentoAlimento, 'categoria' | 'nome'>> }
-        )>>> }
-      ) }> }, allStrapiAlimento: { edges: Array<{ node: (
-        Pick<StrapiAlimento, 'id'>
-        & { categoria?: Maybe<Pick<StrapiAlimentoCategoria, 'nome' | 'limite'>> }
-      ) }> } };
 
 export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 

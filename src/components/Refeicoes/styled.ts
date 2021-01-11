@@ -5,6 +5,18 @@ export const Wrapper = styled.main`
   display: flex;
   padding: 4rem;
   flex-direction: column;
+
+  .diferencaMaior {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: green;
+  }
+
+  .diferencaMenor {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: red;
+  }
 `;
 
 export const RefeicoesTitle = styled.h1`
@@ -59,8 +71,8 @@ export const FormsWrapper = styled.div`
   align-items: center;
   background: white;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.12);
-  height: 30rem;
+  margin-bottom: 2rem;
   width: 100%;
-  padding: 3rem;
+  padding: 4rem;
   border-radius: 1rem;
 `;

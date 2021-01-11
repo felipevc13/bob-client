@@ -9,7 +9,10 @@ type Alimentacoes = {
     quantidadeAlimento: {
       alimento: {
         nome: string
-        categoria: string
+        categoria: {
+          nome: string
+          limite: number
+        }
       }
       quantidade: number
     }
@@ -17,26 +20,14 @@ type Alimentacoes = {
   }
 }
 
-type Alimento = {
-  node: {
-    categoria: {
-      nome: string
-      limite: number
-    }
-    id: string
-  }
-
-
-}
 
 type TabelaProps = {
-  todasAlimentacoes: Alimentacoes[]
-  todosAlimentos: Alimento[]
+  allStrapiAlimentacao: Alimentacoes[]
   dia: string
 }
 
-const Tabela = ({ todasAlimentacoes, todosAlimentos, dia }: TabelaProps) => {
-
+const Tabela = ({ table, dia }: any) => {
+  table = Object.values(table)
   return (
     <S.Wrapper>
       <S.Table >
@@ -47,14 +38,15 @@ const Tabela = ({ todasAlimentacoes, todosAlimentos, dia }: TabelaProps) => {
             <th>Quantidade Ideal</th>
             <th>Diferença</th>
           </tr>
-          {todosAlimentos.map(({ node }) => {
+
+          {table.map((item: any) => {
 
             return (
-              <tr className="itens" key={node.id}>
-                <td>{node.categoria.nome}</td>
-                <td>Lorem ipsum</td>
-                <td>{`${node.categoria.limite} gr`}</td>
-                <td>Lorem ipsum</td>
+              <tr className="itens" key={`meu-${item.quantity}`}>
+                <td>{item.name}</td>
+                <td>{`${item.quantity}gr`}</td>
+                <td>{`${item.ideal}gr`}</td>
+                { parseInt(item.difference) > 0 ? <td className="diferencaMaior">{item.difference}</td> : <td className="diferencaMenor">{item.difference}</td>}
               </tr>
             )
           })}

@@ -28,7 +28,7 @@ module.exports = {
       resolve: 'gatsby-source-strapi',
       options: {
         apiURL: process.env.API_URL || 'http://localhost:1337',
-        contentTypes: ['categoria', 'alimento', 'alimentacao-diaria'],
+        contentTypes: ['categoria', 'alimento', 'alimentacao'],
         queryLimit: 1000,
       },
     },
