@@ -17,11 +17,10 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-
     {
       resolve: 'gatsby-source-strapi',
       options: {
-        apiURL: process.env.GRAPHQL_HOST || 'http://localhost:1337',
+        apiURL: process.env.API_URL || 'http://localhost:1337',
         contentTypes: ['categoria', 'alimento', 'alimentacao'],
         queryLimit: 1000,
       },
