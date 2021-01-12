@@ -232,7 +232,7 @@ const ItemInput = ({
 
   async function novo(dados) {
     const graphQLClient = client;
-
+    console.log(graphQLClient);
     const data = await graphQLClient.request(criandoNovo, dados);
 
     console.log(JSON.stringify(data, undefined, 2));
