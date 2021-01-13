@@ -1,7 +1,3 @@
-require('dotenv').config({
-  path: `.env`,
-});
-
 import { GraphQLClient } from 'graphql-request';
 
 const client = new GraphQLClient(process.env.GATSBY_GRAPHQL_HOST);
