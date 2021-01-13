@@ -37,14 +37,6 @@ const ItemInput = ({
   const { handleSubmit, control } = useForm();
 
   useEffect(() => {
-    if (idDia != '0' && verAlimentos.length === 0) {
-      deletar({
-        where: { id: parseInt(idDia.replace(/([^\d])+/gim, '')) },
-      });
-    }
-  }, []);
-
-  useEffect(() => {
     if (alimentosDia.length > 0) {
       const alimentosDiaLimpo = alimentosDia.map(
         ({ id, alimento, quantidade }) => {
@@ -116,8 +108,15 @@ const ItemInput = ({
         quantidadeAlimento: all,
       };
 
-      editar(dados).catch((error) => console.error(error));
-      setIsEditing(false);
+      if (idDia != '0' && dados.quantidadeAlimento.length === 0) {
+        deletar({
+          where: { id: parseInt(idDia.replace(/([^\d])+/gim, '')) },
+        });
+        setIsEditing(false);
+      } else {
+        editar(dados).catch((error) => console.error(error));
+        setIsEditing(false);
+      }
     }
   };
 
