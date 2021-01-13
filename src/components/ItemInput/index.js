@@ -75,7 +75,7 @@ const ItemInput = ({
           quantidade: parseInt(quantidade),
         };
       });
-      const dataArrumada = addDays(new Date(dateCalendar), 2);
+      const dataArrumada = addDays(new Date(dateCalendar), 1);
       const formattedDate = format(dataArrumada, 'yyyy-MM-dd');
 
       const dados = {
